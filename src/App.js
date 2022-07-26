@@ -23,3 +23,28 @@ function App() {
 }
 
 export default App;
+
+
+
+// API key = WBrkKT8JNeJRIJiqJUSyxyfZ3ISfXlkOLCjUxHmjWNaPrOx5zC78GBBdYcEdzNdr
+
+
+/* curl --location --request POST 'https://data.mongodb-api.com/app/data-iftrm/endpoint/data/v1/action/findOne' \
+--header 'Content-Type: application/json'   \
+--header 'api-key: <API_KEY>' \
+--data-raw '{
+    "collection":"Address",
+    "database":"Helsinki-City-Bike-App",
+    "dataSource":"Cluster0",
+    "projection": {"_id": 1}
+}' */
+
+curl --location --request POST 'https://data.mongodb-api.com/app/62dd4e214fe3dd60e563dba4/endpoint/data/v1/action/findOne' \
+-H 'Content-Type: application/json'   \
+-H 'api-key: WBrkKT8JNeJRIJiqJUSyxyfZ3ISfXlkOLCjUxHmjWNaPrOx5zC78GBBdYcEdzNdr'
+--data-raw '{
+  "collection":"Address",
+  "database":"Helsinki-City-Bike-App",
+  "dataSource":"Cluster0",
+  "projection": {"_id": 1}
+}'
