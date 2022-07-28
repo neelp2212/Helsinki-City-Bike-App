@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {CssBaseline, Grid} from '@material-ui/core'
+import Header from "./Components/Header/header";
+import StationList from "./Components/StationList/stationList";
+import Map from "./Components/Map/map";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <CssBaseline>
+        <Header>
+          <Grid container spacing={3} style ={{ width: '100%' }}>
+          <Grid item xs = {12} md = {4}>
+            <StationList />
+          </Grid>
+          <Grid item xs = {12} md = {4}>
+            <Map />
+          </Grid>
+          </Grid>
+        </Header>
+      </CssBaseline>
+    </>
   );
 }
 
@@ -26,7 +27,32 @@ export default App;
 
 
 
-// API key = WBrkKT8JNeJRIJiqJUSyxyfZ3ISfXlkOLCjUxHmjWNaPrOx5zC78GBBdYcEdzNdr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// API key = Oz10B6pu2CztGnKIjhNFDks1SVxfivApn7tHx7pfjeoKYFO6g55NwKavJyt6xZ0b
 
 
 /* curl --location --request POST 'https://data.mongodb-api.com/app/data-iftrm/endpoint/data/v1/action/findOne' \
@@ -39,12 +65,3 @@ export default App;
     "projection": {"_id": 1}
 }' */
 
-curl --location --request POST 'https://data.mongodb-api.com/app/62dd4e214fe3dd60e563dba4/endpoint/data/v1/action/findOne' \
--H 'Content-Type: application/json'   \
--H 'api-key: WBrkKT8JNeJRIJiqJUSyxyfZ3ISfXlkOLCjUxHmjWNaPrOx5zC78GBBdYcEdzNdr'
---data-raw '{
-  "collection":"Address",
-  "database":"Helsinki-City-Bike-App",
-  "dataSource":"Cluster0",
-  "projection": {"_id": 1}
-}'
