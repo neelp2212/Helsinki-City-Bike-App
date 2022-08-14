@@ -44,32 +44,6 @@ const Search = () => {
           </Card>
         );
       };
-
-
-// Tried to fix the error and complete this but it didn't work
-      // return(
-      //   <div className={classes.App}>
-      //     <div className={classes.wrapper}>
-      //       <div className={classes.cards}>
-      //     {cardData.map(cardData => <div>{cardData.Departure}</div>)}
-      //       </div>
-      //     </div>
-      //     {visible < cardData.length && (<Button onClick = {loadMore}></Button>)}
-      //   </div>
-      // )
-
-    /*return(
-        <div className={classes.App}>
-           <div className={classes.wrapper}>
-                <div className={classes.cards}>
-               {renderCard(cardData)}
-                </div>
-            </div>
-            {visible < cardData.length && (
-            <Button onClick={loadMore}>Load</Button>
-        )}
-        </div>    
-    )*/
 }
 
 export default Search;
