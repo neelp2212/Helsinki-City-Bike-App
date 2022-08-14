@@ -1,6 +1,19 @@
-# Getting Started with Create React App
+# Helsinki-City-Bike-App
+- It is basically a web application which you can use to find the stations near you.
+- You got the data of the stations near you.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Backend-Technology
+- In backend I used the MongoDB database to store the data by creating free shared clusters.
+- Import all the csv data and convert it into json format.
+- Validate the data using Mongoose Schema.
+- Using node.js in the backend for connecting an application to the database.
+- Create localhost api to get the data from MongoDB
+
+# Frontend-Tecnology
+- UI was created using amazing library @material-UI.
+- Fetch all the data in an api and display it in a card.
+- Imported Grid, Inputbase, Button, Card from @material-UI lib.
+- In the frontend, I used React-Native.
 
 ## Available Scripts
 

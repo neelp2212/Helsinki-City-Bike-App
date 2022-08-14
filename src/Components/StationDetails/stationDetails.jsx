@@ -1,8 +1,9 @@
 import React from "react";
 
-const StationDetails = () => {
+
+const StationDetails = ({list}) => {
     return(
-        <h1>StationDetails</h1>
+        <h1>{list.name}</h1>
     )
 }
 

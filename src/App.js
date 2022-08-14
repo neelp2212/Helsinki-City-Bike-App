@@ -1,8 +1,9 @@
 import React from "react";
-import {CssBaseline, Grid} from '@material-ui/core'
+import { CssBaseline } from '@material-ui/core'
+import { Grid } from "@material-ui/core";
 import Header from "./Components/Header/header";
 import StationList from "./Components/StationList/stationList";
-import Map from "./Components/Map/map";
+import Search from "./Components/Search/Search";
 
 const App = () => {
   return (
@@ -14,7 +15,7 @@ const App = () => {
               <StationList />
           </Grid>
           <Grid item xs = {12} md = {4}>
-            <Map />
+            <Search />
           </Grid>
         </Grid>
       </CssBaseline>
