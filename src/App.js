@@ -52,16 +52,3 @@ export default App;
 
 
 
-// API key = Oz10B6pu2CztGnKIjhNFDks1SVxfivApn7tHx7pfjeoKYFO6g55NwKavJyt6xZ0b
-
-
-/* curl --location --request POST 'https://data.mongodb-api.com/app/data-iftrm/endpoint/data/v1/action/findOne' \
---header 'Content-Type: application/json'   \
---header 'api-key: <API_KEY>' \
---data-raw '{
-    "collection":"Address",
-    "database":"Helsinki-City-Bike-App",
-    "dataSource":"Cluster0",
-    "projection": {"_id": 1}
-}' */
-

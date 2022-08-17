@@ -1,49 +1,52 @@
 import React from "react";
 import {useEffect, useState} from 'react';
-import Card from "@material-ui/core/Card";
+import { Card }from "@material-ui/core/";
 import  axios  from "axios";
 import  useStyle  from "./styles";
-import { Button } from "@material-ui/core";
+
 
 const Search = () => {
 
   const classes = useStyle()
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
 
-    const [cardData, setCardData] = useState( );
-    const [visible, setVisible] = useState(5);
+  useEffect(() => {
+    setLoading(true);
+    fetch('http://localhost:5000/record')
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+      })
+      .catch((err) => {
+        setError(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
 
-    const allCardData = async () => {
-        const response = await axios.get('http://localhost:5000/record')
-        setCardData(response.data[0]);   
-    }
-    console.log(cardData)
-  
 
-    const loadMore = () => {
-       setVisible(visible + 5)
-    }
+  if (loading) {
+    return <p>Data is loading...</p>;
+  }
 
-    useEffect(() => {
-        allCardData()
-    },[]);
+  if (error || !Array.isArray(data)) {
+    return <p>There was an error loading your data!</p>;
+  }
 
-    const renderCard = (station) => {
-        return (
-          <Card style={{ width: "18rem" }}>
-            <Card.Body>
-              <Card.Title>
-                {station.Return}
-              </Card.Title>
-              <Card.Text>
-                <ul>
-                  <li>{station.Departure}</li>
-                  <li>{station.Return}</li>
-                </ul>
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        );
-      };
+  return(
+    <div className={classes.App}>
+      <Card>
+      <ul>
+       {data.map((item) => (
+        <li key={item.id}><b>Departure station name</b> - {item['Departure station name']} <br></br><b>Return station name</b> - {item['Return station name']}<br></br> <b>Departure</b>- {item.Departure}<br></br> <b>Return</b> - {item.Return} </li>
+      ))}
+      </ul>
+      </Card>
+      </div>
+  )
 }
 
 export default Search;

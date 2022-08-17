@@ -22,12 +22,12 @@ recordRoutes.route("/record").get(function (req, res) {
    .find({
     "Covered distance (m)": "5000"  
    })
-   .limit(5)
+   .limit(10)
    .toArray(function (err, result) {
      if (err) throw err;
      res.json(result);
    });
-});
+}); 
  
 // This section will help you get a single record by id
 recordRoutes.route("/record/:id").get(function (req, res) {
