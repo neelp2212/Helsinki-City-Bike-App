@@ -1,11 +1,10 @@
 import React from "react";
 import {useEffect, useState} from 'react';
 import { Card }from "@material-ui/core/";
-import  axios  from "axios";
 import  useStyle  from "./styles";
 
 
-const Search = () => {
+const ListStationDetails = () => {
 
   const classes = useStyle()
   const [data, setData] = useState([]);
@@ -36,6 +35,24 @@ const Search = () => {
     return <p>There was an error loading your data!</p>;
   }
 
+  const renderCard = (station, index) => {
+    return (
+      <Card style={{ width: "18rem" }}>
+        <Card.Body>
+          <Card.Title>
+            {station}
+          </Card.Title>
+          <Card.Text>
+            <ul>
+              <li>{station.Departure}</li>
+              <li>{station.Return}</li>
+            </ul>
+          </Card.Text>
+        </Card.Body>
+      </Card>
+    );
+  };
+
   return(
     <div className={classes.App}>
       <Card>
@@ -49,4 +66,4 @@ const Search = () => {
   )
 }
 
-export default Search;
+export default ListStationDetails;

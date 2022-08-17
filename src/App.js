@@ -3,7 +3,7 @@ import { CssBaseline } from '@material-ui/core'
 import { Grid } from "@material-ui/core";
 import Header from "./Components/Header/header";
 import StationList from "./Components/StationList/stationList";
-import Search from "./Components/Search/Search";
+import ListStationDetails from "./Components/ListStationDetails/ListStationDetails";
 
 const App = () => {
   return (
@@ -15,7 +15,7 @@ const App = () => {
               <StationList />
           </Grid>
           <Grid item xs = {12} md = {4}>
-            <Search />
+            <ListStationDetails />
           </Grid>
         </Grid>
       </CssBaseline>
