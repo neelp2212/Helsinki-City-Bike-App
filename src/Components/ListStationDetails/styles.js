@@ -11,6 +11,8 @@ export default makeStyles((theme) => ({
   margin:"0 auto",
   display:"grid","gridGap":"1rem"
 },
+  
+
 }))
 /*
   @media (min-width: 600px):{

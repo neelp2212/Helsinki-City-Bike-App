@@ -10,6 +10,7 @@ const ListStationDetails = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
+  const [visible, setVisible] = useState(5);
 
   useEffect(() => {
     setLoading(true);
@@ -26,7 +27,11 @@ const ListStationDetails = () => {
       });
   }, []);
 
+  console.log(data)
 
+const loadMore = () => {
+  setVisible(visible + 5)
+}
   if (loading) {
     return <p>Data is loading...</p>;
   }
@@ -35,35 +40,27 @@ const ListStationDetails = () => {
     return <p>There was an error loading your data!</p>;
   }
 
-  const renderCard = (station, index) => {
-    return (
-      <Card style={{ width: "18rem" }}>
-        <Card.Body>
-          <Card.Title>
-            {station}
-          </Card.Title>
-          <Card.Text>
-            <ul>
-              <li>{station.Departure}</li>
-              <li>{station.Return}</li>
-            </ul>
-          </Card.Text>
-        </Card.Body>
-      </Card>
-    );
-  };
-
   return(
-    <div className={classes.App}>
-      <Card>
-      <ul>
-       {data.map((item) => (
-        <li key={item.id}><b>Departure station name</b> - {item['Departure station name']} <br></br><b>Return station name</b> - {item['Return station name']}<br></br> <b>Departure</b>- {item.Departure}<br></br> <b>Return</b> - {item.Return} </li>
+  <div className={classes.App}>
+       {data.slice(0,visible).map((item) => (
+        <Card>
+          <ul>
+          <li><b>Departure station name</b> - {item['Departure station name']}</li>
+          <li><b>Return station name</b> - {item['Return station name']}</li>
+          <li><b>Departure</b>- {item.Departure} </li>
+          <li><b>Return</b> - {item.Return}</li> 
+        </ul>
+        </Card>
       ))}
-      </ul>
-      </Card>
+      {visible < data.length && (
+        <button onClick={loadMore}>Load</button>
+      )}
       </div>
   )
 }
 
 export default ListStationDetails;
+
+
+
+
