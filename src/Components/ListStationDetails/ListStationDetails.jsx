@@ -53,7 +53,7 @@ const loadMore = () => {
         </Card>
       ))}
       {visible < data.length && (
-        <button onClick={loadMore}>Load</button>
+        <button className={classes.button} onClick={loadMore}>More Stations</button>
       )}
       </div>
   )
